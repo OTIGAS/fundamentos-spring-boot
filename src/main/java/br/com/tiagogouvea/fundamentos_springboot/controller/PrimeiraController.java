@@ -1,5 +1,7 @@
 package br.com.tiagogouvea.fundamentos_springboot.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -32,5 +34,15 @@ public class PrimeiraController {
     @PostMapping("/metodoComHeaders")
     public String metodoComHeaders(@RequestHeader Map<String, String> headers) {
         return "metodoComHeaders " + headers.entrySet();
+    }
+
+    @GetMapping("/metodoResponseEntity/{id}")
+    public ResponseEntity<Object> metodoResponseEntity(@PathVariable int id) {
+        var usuario = new Usuario("OTIGAS");
+
+        if (id > 5)
+            return ResponseEntity.status(HttpStatus.CREATED).body(usuario.username);
+        else
+            return ResponseEntity.badRequest().body("Numero menor que 5");
     }
 }
