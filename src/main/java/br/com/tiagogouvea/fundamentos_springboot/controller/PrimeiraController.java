@@ -28,4 +28,9 @@ public class PrimeiraController {
     }
 
     record Usuario(String username) {}
+
+    @PostMapping("/metodoComHeaders")
+    public String metodoComHeaders(@RequestHeader Map<String, String> headers) {
+        return "metodoComHeaders " + headers.entrySet();
+    }
 }
