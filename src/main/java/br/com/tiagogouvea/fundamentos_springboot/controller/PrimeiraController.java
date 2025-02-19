@@ -1,14 +1,24 @@
 package br.com.tiagogouvea.fundamentos_springboot.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/primeiraController")
 public class PrimeiraController {
-    @GetMapping("/primeiroMetodo")
-    public String primeiroMetodo() {
-        return "Meu primeiro metodo api rest";
+    @GetMapping("/primeiroMetodo/{id}")
+    public String primeiroMetodo(@PathVariable String id) {
+        return "Parametro é " + id;
+    }
+
+    @GetMapping("/meuMetodoComQueryParam")
+    public String metodoComQueryParam(String id) {
+        return "Parametro com metodoComQueryParam é: " + id;
+    }
+
+    @GetMapping("/meuMetodoComQueryParams")
+    public String metodoComQueryParams(@RequestParam Map<String, String> allParams) {
+        return "Parametros com metodoComQueryParams é: " + allParams.entrySet();
     }
 }
