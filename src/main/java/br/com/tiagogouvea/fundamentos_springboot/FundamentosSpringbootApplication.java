@@ -9,3 +9,5 @@ public class FundamentosSpringbootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FundamentosSpringbootApplication.class, args);
 	}
+
+}
