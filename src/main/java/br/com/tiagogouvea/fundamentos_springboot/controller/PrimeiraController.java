@@ -1,4 +1,4 @@
-package br.com.tiagogouvea.fundamentos_springboot;
+package br.com.tiagogouvea.fundamentos_springboot.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
